@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pj="http://schemas.android.com/apk/res-auto"
+    android:background="#142152"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <com.example.a_03universalapp.ui.CompassView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+         />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/ic_launcher"
+        android:scaleType="centerCrop" />
+
+    <!--  
+    	pj:Items="@array/points"
+       	pj:Names="@array/names"
+     -->
+    <com.example.a_03universalapp.ui.carousel.Carousel
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animationDuration="200"        
+        pj:SelectedItem="0"
+        pj:UseReflection="false" />
+
+</RelativeLayout>
