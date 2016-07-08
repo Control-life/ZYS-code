@@ -1,5 +1,6 @@
 package com.example.a_03universalapp.ui.carousel;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.DataSetObserver;
 import android.os.Handler;
@@ -17,6 +18,7 @@ import android.view.accessibility.AccessibilityEvent;
 import android.widget.Adapter;
 import android.widget.ListView;
 
+@SuppressLint("WrongCall")
 public abstract class  CarouselAdapter <T extends Adapter> extends ViewGroup {
     /**
      * The item view type returned by {@link Adapter#getItemViewType(int)} when
@@ -258,6 +260,7 @@ public abstract class  CarouselAdapter <T extends Adapter> extends ViewGroup {
     public boolean performItemClick(View view, int position, long id) {
         if (mOnItemClickListener != null) {
             playSoundEffect(SoundEffectConstants.CLICK);
+            System.out.println("The hahaha");
             mOnItemClickListener.onItemClick(this, view, position, id);
             return true;
         }
@@ -697,8 +700,8 @@ public abstract class  CarouselAdapter <T extends Adapter> extends ViewGroup {
             // We are now GONE, so pending layouts will not be dispatched.
             // Force one here to make sure that the state of the list matches
             // the state of the adapter.
-            if (mDataChanged) {       
-            	this.onLayout(false, getLeft(), getTop(), getRight(), getBottom());
+            if (mDataChanged) {           
+                this.onLayout(false, getLeft(), getTop(), getRight(), getBottom()); 
             }
         } else {
             if (mEmptyView != null) mEmptyView.setVisibility(View.GONE);

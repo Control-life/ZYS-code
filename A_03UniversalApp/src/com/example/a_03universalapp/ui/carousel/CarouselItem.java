@@ -1,5 +1,6 @@
 package com.example.a_03universalapp.ui.carousel;
 
+
 import com.example.a_03universalapp.R;
 
 import android.content.Context;
@@ -10,12 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-public class CarouselItem extends FrameLayout implements Comparable<CarouselItem> {
+public class CarouselItem extends FrameLayout
+	implements Comparable<CarouselItem> {
 
-	private ImageView mImage;
-	private TextView mText;
+	private ImageView mIconImage;
+	private ImageView mNameImage;
 
 	private int index;
 	private float currentAngle;
@@ -31,22 +32,21 @@ public class CarouselItem extends FrameLayout implements Comparable<CarouselItem
 
 		super(context);
 
-		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT,
-				LayoutParams.WRAP_CONTENT);
+		FrameLayout.LayoutParams params =
+				new FrameLayout.LayoutParams(
+						LayoutParams.WRAP_CONTENT,
+						LayoutParams.WRAP_CONTENT);
 
 		this.setLayoutParams(params);
 
-		LayoutInflater inflater = LayoutInflater.from(context);
-		View itemTemplate = inflater.inflate(R.layout.item, this, true);
+	  	LayoutInflater inflater = LayoutInflater.from(context);
+		View itemTemplate = inflater.inflate(R.layout.carousel_item, this, true);
 
-		mImage = (ImageView) itemTemplate.findViewById(R.id.item_image);
-		mText = (TextView) itemTemplate.findViewById(R.id.item_text);
+		mIconImage = (ImageView)itemTemplate.findViewById(R.id.item_icon);
+		mNameImage=(ImageView)itemTemplate.findViewById(R.id.item_name);
 
 	}
 
-	public String getName() {
-		return mText.getText().toString();
-	}
 
 	public void setIndex(int index) {
 		this.index = index;
@@ -56,9 +56,10 @@ public class CarouselItem extends FrameLayout implements Comparable<CarouselItem
 		return index;
 	}
 
+
 	public void setCurrentAngle(float currentAngle) {
 
-		if (index == 0 && currentAngle > 5) {
+		if(index == 0 && currentAngle > 5){
 			Log.d("", "");
 		}
 
@@ -70,7 +71,8 @@ public class CarouselItem extends FrameLayout implements Comparable<CarouselItem
 	}
 
 	public int compareTo(CarouselItem another) {
-		return (int) (another.itemZ - this.itemZ);
+		//System.out.println("compareTo:" + another.itemZ+","+this.itemZ);
+		return (int)(another.itemZ - this.itemZ);
 	}
 
 	public void setItemX(float x) {
@@ -105,13 +107,21 @@ public class CarouselItem extends FrameLayout implements Comparable<CarouselItem
 		return drawn;
 	}
 
-	public void setImageBitmap(Bitmap bitmap) {
-		mImage.setImageBitmap(bitmap);
+	public void setImageBitmap(Bitmap bitmap){
+		mIconImage.setImageBitmap(bitmap);
 
 	}
 
-	public void setText(String txt) {
-		mText.setText(txt);
+	public ImageView getImageView() {
+		return this.mIconImage;
+	}
+	
+	public void setNameBitmap(Bitmap bitmap){
+		mNameImage.setImageBitmap(bitmap);
+	}
+	
+	public ImageView getNameImageView(){
+		return this.mNameImage;
 	}
 
 	Matrix getCIMatrix() {

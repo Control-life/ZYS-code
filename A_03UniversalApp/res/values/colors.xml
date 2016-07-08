@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="shape_red">#FF0000</color>
+    <color name="shape_blue">#0000FF</color>
+    <color name="shape_black">#000000</color>
+</resources>

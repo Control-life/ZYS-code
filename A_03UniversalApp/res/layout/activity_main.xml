@@ -1,34 +1,80 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:pj="http://schemas.android.com/apk/res-auto"
-    android:background="#142152"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#000000"
+    >
 
     <com.example.a_03universalapp.ui.CompassView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="230dp"
          />
 
     <ImageView
         android:id="@+id/iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/ic_launcher"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/images_voice"
         android:scaleType="centerCrop" />
-
-    <!--  
-    	pj:Items="@array/points"
-       	pj:Names="@array/names"
-     -->
-    <com.example.a_03universalapp.ui.carousel.Carousel
+    <!-- 最左边的 -->
+    <ImageView 
+        android:id="@+id/point01"
+        android:layout_width="8dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="438dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/images_point"
+        />
+    <!-- 最下边的 -->
+    <ImageView 
+        android:id="@+id/point02"
+        android:layout_width="8dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="638dp"
+        android:layout_marginTop="325dp"
+        android:background="@drawable/images_point"
+        />
+    <!-- 最右边的 -->
+    <ImageView 
+        android:id="@+id/point03"
+        android:layout_width="8dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="838dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/images_point"
+        />
+    <!-- 上边靠左的 -->
+    <ImageView 
+        android:id="@+id/point04"
+        android:layout_width="8dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="543dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/images_point"
+        />
+    <!-- 上边靠右的 -->
+    <ImageView 
+        android:id="@+id/point05"
+        android:layout_width="8dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="735dp"
+        android:layout_marginTop="170dp"
+        android:background="@drawable/images_point"
+        />
+    
+    <com.example.a_03universalapp.ui.carousel.Carousel 
         android:id="@+id/carousel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animationDuration="200"        
+        android:animationDuration="200"
+        pj:Items="@array/entrie_home"
+        pj:Names="@array/entire_name"
         pj:SelectedItem="0"
-        pj:UseReflection="false" />
+        pj:UseReflection="false"
+        />
+
 
 </RelativeLayout>
